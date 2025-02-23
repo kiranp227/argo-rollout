@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rollout-bluegreen-preview
+spec:
+  selector:
+    app: rollout-bluegreen  # This will match pods with the label app=rollout-bluegreen
+  ports:
+    - protocol: TCP
+      port: 8080         # Exposed port of the service
+      targetPort: 8080  # Port the pod is listening on
+  type: NodePort       # You can change this to LoadBalancer or NodePort based on your requirements
